@@ -1,0 +1,3 @@
+[submodule "include/ft_libgfx"]
+	path = include/ft_libgfx
+	url = https://github.com/rafagaia/ft_libgfx.git
