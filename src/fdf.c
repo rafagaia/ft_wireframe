@@ -6,18 +6,12 @@
 /*   By: rgaia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 12:29:33 by rgaia             #+#    #+#             */
-/*   Updated: 2019/02/28 16:55:36 by rgaia            ###   ########.fr       */
+/*   Updated: 2019/03/01 11:46:55 by rgaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_libft/libft.h" //ft_libft
-#include "../include/ft_libgfx/libgfx.h" //ft_libgfx
+#include "../include/fdf.h"
 
-void	handle_exit(char *str)
-{
-	ft_puterror(str);
-	exit(EXIT_FAILURE);
-}
 /*
  *	ft_fdf:
  *		requires .fdf file containng XYZ coordinate formts from relief landscape
@@ -39,10 +33,32 @@ void	handle_exit(char *str)
 int			ft_fdf(t_fdf *fdf)
 {
 	//[LIB] ft_libgfx Function
-	ft_render_fdf(fdf);
-	return (0);
+	return ((ft_render_fdf(fdf)));
 }
 
+/*
+ *
+ *
+*/ 
+t_list		**init_raster(int fd)
+{
+
+}
+
+/*
+ *
+ *
+ */
+t_view		*init_camera(t_view *camera_view)
+{
+
+
+}
+
+/*
+ *
+ *
+*/ 
 t_fdf		*init_fdf(int fd, t_fdf *fdf)
 {
 	//error checking and all that in here
@@ -62,6 +78,12 @@ t_fdf		*init_fdf(int fd, t_fdf *fdf)
 	//need to SET do other stuff to MLX Struct here
 
 	return (fdf);
+}
+
+void	handle_exit(char *str)
+{
+	ft_puterror(str);
+	exit(EXIT_FAILURE);
 }
 
 /*
@@ -89,7 +111,8 @@ int		main(int argc, char *argv[])
 		handle_exit("ERROR: FILE DOESN'T OPEN PROPERLY.\n");
 	if (!(fdf = (t_fdf*)malloc(sizeof(t_fdf))))
 		handle_exit("ERROR: BAD FDF MALLOC\n");
-	fdf = init_fdf(fdf);
+	if (!(fdf = init_fdf(fdf)))
+		handle_exit("ERROR: BAD INIT_FDF\n");
 	do
 	{
 		_error = ft_fdf(fd, &fdf);

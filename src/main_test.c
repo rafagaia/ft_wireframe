@@ -6,12 +6,11 @@
 /*   By: rgaia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:38:51 by rgaia             #+#    #+#             */
-/*   Updated: 2019/02/28 13:37:44 by rgaia            ###   ########.fr       */
+/*   Updated: 2019/03/01 11:46:32 by rgaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_libft/libft.h"
-#include "../include/ft_libgfx/libgfx.h"
+#include "../include/fdf.h"
 
 
 /*

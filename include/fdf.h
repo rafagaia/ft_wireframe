@@ -6,12 +6,14 @@
 /*   By: rgaia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 13:17:07 by rgaia             #+#    #+#             */
-/*   Updated: 2019/02/26 00:44:04 by rgaia            ###   ########.fr       */
+/*   Updated: 2019/03/01 11:46:07 by rgaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+
+#include "ft_libgfx/libgfx.h"
 
 # define WIN_WIDTH (1280)
 # define WIN_HEIGHT (720)
