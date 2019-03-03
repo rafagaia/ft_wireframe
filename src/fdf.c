@@ -6,7 +6,7 @@
 /*   By: rgaia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 12:29:33 by rgaia             #+#    #+#             */
-/*   Updated: 2019/03/01 11:46:55 by rgaia            ###   ########.fr       */
+/*   Updated: 2019/03/01 17:05:33 by rgaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  *		(0) : ???
  *		(-1): bad file name
  *		(-2): bad file format
- *		(-3): bad camera view
+ *		(-3): bad camera image
  *		(-4): bad List of Point
  *
  *		OBS: CONSECUTIVE FDF CALLS WILL NEED THE LIST OF POINTS THAT GOT READ
@@ -49,7 +49,7 @@ t_list		**init_raster(int fd)
  *
  *
  */
-t_view		*init_camera(t_view *camera_view)
+t_image		*init_camera(t_image *camera_view)
 {
 
 
@@ -63,7 +63,7 @@ t_fdf		*init_fdf(int fd, t_fdf *fdf)
 {
 	//error checking and all that in here
 	
-	t_view	*camera_view;
+	t_image	*camera_view;
 	t_list	**list_raster;
 	t_mlx	*mlx; //needs to be pointer?
 	
@@ -73,7 +73,7 @@ t_fdf		*init_fdf(int fd, t_fdf *fdf)
 
 	list_raster = init_raster(fd);
 	close(fd);
-	camera_view = init_camera(camera_view);
+	camera_image = init_camera(camera_view);
 	mlx = mlx_init(); //something like this
 	//need to SET do other stuff to MLX Struct here
 
@@ -92,7 +92,7 @@ void	handle_exit(char *str)
 *	perspective?
 *		WHY?
 *	We're SIMULATING 3D by connecting the lines between the points to
-*	make it work for THAT ONE SPECIFIC Camera_View
+*	make it work for THAT ONE SPECIFIC Camera_image
 *	Rotations, translations and wobbles need to re-draw ALL LINES
 *		OBS: 
 *		0.	Points remain STATIC (DON'T FREE THEM TIl THE END)
