@@ -6,7 +6,7 @@
 /*   By: rgaia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 12:29:33 by rgaia             #+#    #+#             */
-/*   Updated: 2019/03/01 17:05:33 by rgaia            ###   ########.fr       */
+/*   Updated: 2019/03/04 20:44:10 by rgaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_fdf(t_fdf *fdf)
  *
  *
 */ 
-t_list		**init_raster(int fd)
+t_list		**init_raster_scan(int fd)
 {
 
 }
@@ -71,7 +71,7 @@ t_fdf		*init_fdf(int fd, t_fdf *fdf)
 	/*if ((valid_file_format(fd)) == NULL)
 		exit_failure("ERROR: INVALID FILE FORMAT.\n");*/
 
-	list_raster = init_raster(fd);
+	list_raster = init_raster_scan(fd);
 	close(fd);
 	camera_image = init_camera(camera_view);
 	mlx = mlx_init(); //something like this
@@ -87,9 +87,11 @@ void	handle_exit(char *str)
 }
 
 /*
-*	Should we do like ft_fillit design to run a new recursive "Render"
+*	***			***			[@FDF EXECUTABLE ENTRY FUNC]	***		***		***
+*
+*	Do like ft_fillit design to run a new recursive "Render"
 *	every time the user hits a key to move the map around and get a new
-*	perspective?
+*	perspective.
 *		WHY?
 *	We're SIMULATING 3D by connecting the lines between the points to
 *	make it work for THAT ONE SPECIFIC Camera_image
@@ -98,6 +100,17 @@ void	handle_exit(char *str)
 *		0.	Points remain STATIC (DON'T FREE THEM TIl THE END)
 *			0.0. ?Then how do we pass back to FDF a pointer the LIST of X,Y,Z
 *				 coordinates? Ans: You pass in a NULL pointer the first time
+*		1.	Doesn't need to re-draw all lines. You're misunderstanding what mi-
+*		niLibX does and how to use it properly. You leave all your t_pixel obt-
+*		ained from @in .fdf allocated in-between each new render whenever the 
+*		user does anything (keyboard, mouse, touch-screen, etc...)
+*		2.	Don't free your map values (**list) until the user presses ESC
+*		3.	If the Program QUITS BY ERROR (unexpectedly): it's still your fualt,
+*			but the equivalent of "try/catch" for our purposes here in C is to
+*			"let it crash" if you didn't handle your mem allocations, freeing,or
+*			index/iteration management properly. It'll crash (for now). Make yo
+*			Main_tests READ LOG FILES to compare what IS HAPPENING IN REAL-	
+*			TIME to what is EXPECTED TO BE HAPPENING.
 */
 int		main(int argc, char *argv[])
 {

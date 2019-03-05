@@ -6,7 +6,7 @@
 /*   By: rgaia <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 10:38:51 by rgaia             #+#    #+#             */
-/*   Updated: 2019/03/03 12:55:29 by rgaia            ###   ########.fr       */
+/*   Updated: 2019/03/04 20:45:09 by rgaia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@
  * Create a way to share run-time statuses onto a log file. How?
  * -	after each "important" function is called - get return value and write 
  *  	to a file something like "map was rendered to window" "point was placed"
- *  	(create separate log for memory allocations [INITS])
- *  	(create separate log for logs related to freeing memory)
- *  	(create separate log for pixel, line functions)
+ *
+ *  	Log Files List:
+ *  	1.	From memory management (malloc, free) [INITS/EXITS])
+ *  	2.	From functions @input to t_fdf struct)
+ *  	3.	From functions for pixel, line , receiving from t_fdf, rendering)
+ *  	4.	From Keyboard/mouse handlers
  *
  *		Use [LIBFT] ft_putstr_fd to write to separate Log files throughout pro-
  *		gram

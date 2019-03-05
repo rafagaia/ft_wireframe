@@ -6,8 +6,15 @@
 # [TODO] In-Progress:
 
 	0. Add Keyboard and Mouse Handlers
-	1. Prepare .fdf data onto List of Pixels
+	
+	1. Init Functions
+		1. init_raster: Prepare .fdf data onto List of Pixels
+		1. init_image
+		2. init_map
+	
 	2. Implement ft_libgfx functions:
-	2.1 ft_putpixel
-	2.2 ft_putline
-	2.3 ft_render_fdf.c
+		1. ft_putpixel
+		2. ft_putline
+		3. ft_render_fdf.c
+
+
