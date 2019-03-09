@@ -13,43 +13,12 @@
 #ifndef FDF_H
 # define FDF_H
 
-#include "ft_libgfx/libgfx.h"
-
-# define WIN_WIDTH (1280)
-# define WIN_HEIGHT (720)
-
+#include "~/raf/ft_libgfx/libgfx.h" //INCLUDE LIB IN ft_wireframe/include BEFORE SUBMITTING
 // WE NEED A 2D LIST TO HOLD THE POINTS WE PARSE FROM THE FILE
 // THIS IS FIRST STEP!!! PARSE -> STORE IN DATA STRUCTURE.
 
 
-/*	1.	RECEIVE INPUT:
- *		
- *	1.1		Read file: Get_next_line
- */
 
-
-
-
-/*	2.	[RASTERISATION] PREPARE DATA:
- *	2.2.	Transform each line from GNL to a list of points: ft_split, getnbr
- *	2.3.	Return a list of list, each containing a row of points
- *	Obs:	Do Rendering to window row-by-row?
- */
-
-
-
-
-/*	3.	OUTPUT PIXELS TO WINDOW:
- *
- */
-
-
-
-
-
-/*	4.	KEYBOARD AND MOUSE 'EVENTS' HANDLERS:
- *
- */
 
 
 #endif /* FDF_H */
